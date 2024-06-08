@@ -26,7 +26,7 @@ s.Parent = game.Workspace
 
 task.wait(3)
 s:play()
-task.wait(_G.WaitForSoundThenDoIt)
+task.wait(_G.PlayTheSoundThenDoIt)
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
