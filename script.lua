@@ -4,16 +4,17 @@ local CoreGui = cloneref(game:GetService("CoreGui"))
 local Workspace = cloneref(game:GetService("Workspace"))
 
 -- Chat Properties
+local isChatModule
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-	isChatModule = "New"
+	isChatModule = "modern"
 else
-	isChatModule = "Legacy"
+	isChatModule = "legacy"
 end
 
 local function chat(str)
-	if isChatModule == "New" then
+	if isChatModule == "modern" then
 		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(str)
-	elseif isChatModule == "Legacy" then
+	elseif isChatModule == "legacy" then
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
 	end
 end
