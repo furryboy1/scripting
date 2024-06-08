@@ -1,8 +1,10 @@
 ## script:
 ```lua
-_G.CrashMinutes = 1 -- changes how long until the game crashes
+_G.Minutes = 0
+_G.Seconds = 30
+
 _G.Disco = true -- changes the changing colors
-_G.ChatLol = true -- makes you chat or not
+_G.ChatSpam = true -- spams the chat
 _G.FovChanger = true -- changes your fov
 
 _G.Delayed = 3 -- delay before playing the sound
