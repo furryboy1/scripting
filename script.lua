@@ -128,7 +128,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
 			h.Text = min.. ":" ..sec..":" ..mic
 		end
-		task.wait(.025)
+		task.wait(.027)
 	end
 end
 coroutine.wrap(BHHDQA_fake_script)()
