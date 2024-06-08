@@ -3,6 +3,7 @@ local TextChatService = cloneref(game:GetService("TextChatService"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local Workspace = cloneref(game:GetService("Workspace"))
 local SoundService = cloneref(game:GetService("SoundService"))
+local Lighting = cloneref(game:GetService("Lighting"))
 local Players = cloneref(game:GetService("Players"))
 
 -- Chat Properties
