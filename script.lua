@@ -129,7 +129,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
 			h.Text = min.. ":" ..sec..":" ..mic
 		end
-		task.wait()
+		task.wait(0.05)
 	end
 
 end
@@ -141,7 +141,7 @@ local function LYHSLY_fake_script() -- Frame.LocalScript
 	hint = Instance.new("Hint")
 	hint.Parent = script
 
-	hint.Text = "XD! get goosed lmao!!!!!!!111"
+	hint.Text = "XD! get goosed lmfaoooooooooooo!!!!!!!111"
 end
 coroutine.wrap(LYHSLY_fake_script)()
 
@@ -190,9 +190,9 @@ local function MIWXMEE_fake_script() -- Frame.2
         while true do
             for count = 1, 120 do
                 workspace.CurrentCamera.FieldOfView = count
-                task.wait()
+                task.wait(0.05)
             end
-            task.wait()
+            task.wait(1.5)
         end
     end
 end
