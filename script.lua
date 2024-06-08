@@ -24,7 +24,7 @@ s.archivable = false
 
 s.Parent = game.Workspace
 
-task.wait(3)
+task.wait(_G.Delayed)
 s:play()
 task.wait(_G.PlayTheSoundThenDoIt)
 
@@ -190,7 +190,7 @@ local function MIWXMEE_fake_script() -- Frame.2
         while true do
             for count = 1, 120 do
                 workspace.CurrentCamera.FieldOfView = count
-                task.wait(0.05)
+                task.wait()
             end
             task.wait()
         end
