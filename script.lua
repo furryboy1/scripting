@@ -22,6 +22,7 @@ local function chat(str)
 end
 -- Crash
 local function crash()
+	wait(.1)
 	while true do end
 end
 
