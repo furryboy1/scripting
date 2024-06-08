@@ -32,7 +32,7 @@ Sound:Play()
 task.wait(_G.PlayTheSoundThenDoIt)
 
 -- Properties
-local ScreenGui = Instance.new("ScreenGui", Players.LocalPlayer:WaitForChild("PlayerGui"))
+local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Enabled = true
@@ -109,8 +109,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 					min = 0
 					sec = 0
 					mic = 0
-					break
-					wait(0.1)
+					wait(.2)
 					while true do end
 				end
 			end
@@ -179,7 +178,7 @@ local function ZSRBTV_fake_script() -- Frame.3
     if _G.Disco == true then
 		Lighting.Brightness = 0
         while true do
-            game:GetService("Lighting").Ambient = Color3.new(math.random(), math.random(), math.random())
+            Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
             task.wait(.25)
         end 
     end
