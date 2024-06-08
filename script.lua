@@ -2,19 +2,19 @@
 local TextChatService = cloneref(game:GetService("TextChatService"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local Workspace = cloneref(game:GetService("Workspace"))
+local Players = cloneref(game:GetService("Players"))
 
 -- Chat Properties
-local isChatModule
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-	isChatModule = "modern"
+	isChatModule = "New"
 else
-	isChatModule = "legacy"
+	isChatModule = "Legacy"
 end
 
 local function chat(str)
-	if isChatModule == "modern" then
+	if isChatModule == "New" then
 		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(str)
-	elseif isChatModule == "legacy" then
+	elseif isChatModule == "Legacy" then
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
 	end
 end
@@ -35,6 +35,7 @@ task.wait(_G.PlayTheSoundThenDoIt)
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
+ScreenGui.Enabled = true
 
 local Frame = Instance.new("Frame", ScreenGui)
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
