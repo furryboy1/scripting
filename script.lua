@@ -34,9 +34,9 @@ Sound.Volume = 10000
 Sound.Looped = true
 Sound.archivable = false
 
-task.wait(_G.Delayed)
+task.wait(_G.Delayed_1)
 Sound:Play()
-task.wait(_G.PlayTheSoundThenDoIt)
+task.wait(_G.Delayed_2)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
