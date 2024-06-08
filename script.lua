@@ -178,7 +178,7 @@ local function HCSRLY_fake_script() -- Frame.1
     if _G.ChatLol == true then
         while true do
             chat("lol")
-            task.wait()
+            task.wait(0.1)
         end
     end
 end
