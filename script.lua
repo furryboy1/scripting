@@ -108,27 +108,28 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 					min = 0
 					sec = 0
 					mic = 0
+					break
 					wait(0.1)
 					while true do end
 				end
 			end
 		end
 		if min <= 9 and sec <= 9 and mic <= 9 then
-			h.Text = "0" ..min.. ":0" ..sec..".0" ..mic
+			h.Text = "0"..min..":0"..sec..".0"..mic
 		elseif min <= 9 and sec <= 9 and mic >= 10 then
-			h.Text = "0" ..min.. ":0" ..sec.."." ..mic
+			h.Text = "0"..min..":0"..sec.."."..mic
 		elseif min <= 9 and sec >= 10 and mic <= 9 then
-			h.Text = "0" ..min.. ":" ..sec..".0" ..mic
+			h.Text = "0"..min..":"..sec..".0"..mic
 		elseif min <= 9 and sec >= 10 and mic >= 10 then
-			h.Text = "0" ..min.. ":" ..sec.."." ..mic
+			h.Text = "0"..min..":"..sec.."."..mic
 		elseif min >= 10 and sec <= 9 and mic <= 9 then
-			h.Text = min.. ":0" ..sec..".0" ..mic
+			h.Text = min..":0"..sec..".0"..mic
 		elseif min >= 10 and sec <= 9 and mic >= 10 then
-			h.Text = min.. ":0" ..sec.."." ..mic
+			h.Text = min..":0"..sec.."."..mic
 		elseif min >= 10 and sec >= 10 and mic <= 9 then
-			h.Text = min.. ":" ..sec..".0" ..mic
+			h.Text = min..":"..sec..".0"..mic
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
-			h.Text = min.. ":" ..sec.."." ..mic
+			h.Text = min..":"..sec.."."..mic
 		end
 		task.wait(.027)
 	end
