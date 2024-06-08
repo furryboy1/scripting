@@ -77,6 +77,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 	local min = _G.CrashMinutes --  To change the countdown time, change ONLY these three numbers.
 	local sec = 0 --  Please note that min stands for Minutes, sec for Seconds, and mic
 	local mic = 0 -- <--  for Microseconds. This is NOT 100% accurate and gives about 18
+
 	-------  more seconds per 5 minutes you have on the timer. The math comes
 	-------  to about 3.6 more seconds per minute. It is hardly too noticable.
 	-------  .6 seconds is about 36 microseconds. Keeping this in mind, note
@@ -93,7 +94,6 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 	-------   25 minutes     ---------------------------------       26:30:00         -------
 	-------   30 minutes     ---------------------------------       31:48:00         -------
 	--------------------------------------------------------------------------------------------
-
 	h = script.Parent
 
 	while true do
@@ -128,43 +128,35 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
 			h.Text = min.. ":" ..sec..":" ..mic
 		end
-		task.wait(.04)
+		task.wait(.025)
 	end
-
 end
 coroutine.wrap(BHHDQA_fake_script)()
 
 local function LYHSLY_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
-
 	hint = Instance.new("Hint")
 	hint.Parent = script
-
 	hint.Text = "XD! get goosed lmfaoooooooooooo!!!!!!!111"
 end
 coroutine.wrap(LYHSLY_fake_script)()
 
 local function MWQWI_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
-
 	print(_G.CrashMinutes * 60)
 	task.wait()
 	print("counting bitch!")
 	task.wait(_G.CrashMinutes * 60)
 	print("DONE!!! EZZZZ")
 	task.wait(2)
-
 	light = game.Lighting
 	game.Lighting.Brightness = 0
-	
 	while true do
 		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
 	end 
-
 	while true do
 		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
 	end 
-
 	while true do
 		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
 	end 
@@ -173,7 +165,6 @@ coroutine.wrap(MWQWI_fake_script)()
 
 local function HCSRLY_fake_script() -- Frame.1 
 	local script = Instance.new('LocalScript', Frame)
-
     if _G.ChatLol == true then
         while true do
             chat("lol")
@@ -202,7 +193,6 @@ local function ZSRBT_fake_script() -- Frame.3
     if _G.Disco == true then
         light = game.Lighting
         game.Lighting.Brightness = 0
-
         while true do
             game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
             task.wait(.25)
