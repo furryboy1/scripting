@@ -129,7 +129,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
 			h.Text = min.. ":" ..sec..":" ..mic
 		end
-		task.wait(.05)
+		task.wait(.01)
 	end
 
 end
@@ -192,7 +192,7 @@ local function MIWXMEE_fake_script() -- Frame.2
                 workspace.CurrentCamera.FieldOfView = count
                 task.wait(0.05)
             end
-            task.wait(1.5)
+            task.wait()
         end
     end
 end
