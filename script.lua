@@ -198,7 +198,7 @@ end
 coroutine.wrap(MIWXMEE_fake_script)()
 
 local function ZSRBT_fake_script() -- Frame.3 
-	local script = Instance.new('LocalScript', Frame)
+    local script = Instance.new('LocalScript', Frame)
     if _G.Disco == true then
         light = game.Lighting
         game.Lighting.Brightness = 0
