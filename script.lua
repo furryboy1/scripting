@@ -74,8 +74,8 @@ TextLabel_2.TextWrapped = true
 local function BHHDQA_fake_script() -- TextLabel_2.LocalScript 
 	local script = Instance.new('LocalScript', TextLabel_2)
 
-	local min = _G.CrashMinutes --  To change the countdown time, change ONLY these three numbers.
-	local sec = 0 --  Please note that min stands for Minutes, sec for Seconds, and mic
+	local min = _G.Minutes --  To change the countdown time, change ONLY these three numbers.
+	local sec = _G.Seconds --  Please note that min stands for Minutes, sec for Seconds, and mic
 	local mic = 0 -- <--  for Microseconds. This is NOT 100% accurate and gives about 18
 
 	-------  more seconds per 5 minutes you have on the timer. The math comes
@@ -108,7 +108,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 					min = 0
 					sec = 0
 					mic = 0
-					task.wait(0.1)
+					wait(0.1)
 					while true do end
 				end
 			end
