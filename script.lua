@@ -20,6 +20,10 @@ local function chat(str)
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
 	end
 end
+-- Crash
+local function crash()
+	while true do end
+end
 
 -- Music
 local Sound = Instance.new("Sound", SoundService)
@@ -111,7 +115,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 					min = 0
 					sec = 0
 					mic = 0
-					while true do end
+					task.spawn(crash)
 				end
 			end
 		end
