@@ -108,6 +108,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 					min = 0
 					sec = 0
 					mic = 0
+					while true do end
 				end
 			end
 		end
@@ -140,28 +141,6 @@ local function LYHSLY_fake_script() -- Frame.LocalScript
 	hint.Text = "XD! get goosed lmfaoooooooooooo!!!!!!!111"
 end
 coroutine.wrap(LYHSLY_fake_script)()
-
-local function MWQWI_fake_script() -- Frame.LocalScript 
-	local script = Instance.new('LocalScript', Frame)
-	print(_G.CrashMinutes * 60)
-	task.wait()
-	print("counting bitch!")
-	task.wait(_G.CrashMinutes * 60)
-	print("DONE!!! EZZZZ")
-	task.wait(2)
-	light = game.Lighting
-	game.Lighting.Brightness = 0
-	while true do
-		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
-	end 
-	while true do
-		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
-	end 
-	while true do
-		game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
-	end 
-end
-coroutine.wrap(MWQWI_fake_script)()
 
 local function HCSRLY_fake_script() -- Frame.1 
 	local script = Instance.new('LocalScript', Frame)
