@@ -17,7 +17,7 @@ local s = Instance.new("Sound")
 COREGUI = game:GetService("CoreGui")
 
 s.Name = "goosed!!!"
-s.SoundId = _G.SoundId
+s.SoundId = "rbxassetid://".._G.SoundId
 s.Volume = 10000
 s.Looped = true
 s.archivable = false
