@@ -1,3 +1,4 @@
+## script:
 ```lua
 _G.CrashMinutes = 1 -- changes how long until the game crashes
 _G.Disco = true -- changes the changing colors
