@@ -1,4 +1,9 @@
+-- Services
 local TextChatService = cloneref(game:GetService("TextChatService"))
+local CoreGui = cloneref(game:GetService("CoreGui"))
+local Workspace = cloneref(game:GetService("Workspace"))
+
+-- Chat Properties
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
 	isChatModule = "New"
 else
@@ -13,39 +18,30 @@ local function chat(str)
 	end
 end
 
-local s = Instance.new("Sound")
-COREGUI = game:GetService("CoreGui")
-
-s.Name = "goosed!!!"
-s.SoundId = "rbxassetid://".._G.SoundId
-s.Volume = 10000
-s.Looped = true
-s.archivable = false
-
-s.Parent = game.Workspace
+-- Music
+local Sound = Instance.new("Sound")
+Sound.Name = "goosed!!!"
+Sound.SoundId = "rbxassetid://".._G.SoundId
+Sound.Volume = 10000
+Sound.Looped = true
+Sound.archivable = false
 
 task.wait(_G.Delayed)
-s:play()
+Sound:Play()
 task.wait(_G.PlayTheSoundThenDoIt)
 
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-
---Properties:
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+-- Properties
+local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 
-Frame.Parent = ScreenGui
+local Frame = Instance.new("Frame", ScreenGui)
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BackgroundTransparency = 1.000
 Frame.Position = UDim2.new(0.23317112, 0, 0.292214155, 0)
 Frame.Size = UDim2.new(0, 548, 0, 256)
 
-TextLabel.Parent = Frame
+local TextLabel = Instance.new("TextLabel", Frame)
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderSizePixel = 0
@@ -58,6 +54,7 @@ TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
 TextLabel.TextWrapped = true
 
+local TextLabel_2 = Instance.new("TextLabel", Frame)
 TextLabel_2.Parent = Frame
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.BackgroundTransparency = 1.000
@@ -70,32 +67,34 @@ TextLabel_2.TextScaled = true
 TextLabel_2.TextSize = 14.000
 TextLabel_2.TextWrapped = true
 
--- Scripts:
+-- Scripts
 local function BHHDQA_fake_script() -- TextLabel_2.LocalScript 
 	local script = Instance.new('LocalScript', TextLabel_2)
 
-	local min = _G.Minutes --  To change the countdown time, change ONLY these three numbers.
-	local sec = _G.Seconds --  Please note that min stands for Minutes, sec for Seconds, and mic
-	local mic = 0 -- <--  for Microseconds. This is NOT 100% accurate and gives about 18
+	local min = _G.Minutes -- To change the countdown time, change ONLY these three numbers.
+	local sec = _G.Seconds -- Please note that min stands for Minutes, sec for Seconds, and mic
+	local mic = 0 -- for Microseconds. This is NOT 100% accurate and gives about 18
 
+	-----------------------------------------------------------------------------------------
 	-------  more seconds per 5 minutes you have on the timer. The math comes
-	-------  to about 3.6 more seconds per minute. It is hardly too noticable.
+	------- to about 3.6 more seconds per minute. It is hardly too noticable.
+	-------
 	-------  .6 seconds is about 36 microseconds. Keeping this in mind, note
 	------- the table below for approximate times to times you may select.
-	--------------------------------------------------------------------------------------------
-	-------  Selected Time  --------------------------------- Approximate Time -------
-	-------     1 minute       ---------------------------------        1:03:36          -------
-	-------    2 minutes      ---------------------------------        2:06:72          -------
-	-------    5 minutes      ---------------------------------        5:18:00          -------
+	-----------------------------------------------------------------------------------------
+	-------  Selected Time   ---------------------------------    Approximate Time    -------
+	-------     1 minute     ---------------------------------       1:03:36          -------
+	-------    2 minutes     ---------------------------------       2:06:72          -------
+	-------    5 minutes     ---------------------------------       5:18:00          -------
 	-------   10 minutes     ---------------------------------       10:36:00         -------
 	-------   12 minutes     ---------------------------------       12:42:72         -------
 	-------   15 minutes     ---------------------------------       15:54:00         -------
 	-------   20 minutes     ---------------------------------       21:12:00         -------
 	-------   25 minutes     ---------------------------------       26:30:00         -------
 	-------   30 minutes     ---------------------------------       31:48:00         -------
-	--------------------------------------------------------------------------------------------
-	h = script.Parent
+	-----------------------------------------------------------------------------------------
 
+	h = script.Parent
 	while true do
 		mic = mic - 2
 		if mic <= -1 then
@@ -138,6 +137,7 @@ coroutine.wrap(BHHDQA_fake_script)()
 
 local function LYHSLY_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
+	
 	hint = Instance.new("Hint")
 	hint.Parent = script
 	hint.Text = "XD! get goosed lmfaoooooooooooo!!!!!!!111"
@@ -146,7 +146,8 @@ coroutine.wrap(LYHSLY_fake_script)()
 
 local function HCSRLY_fake_script() -- Frame.1 
 	local script = Instance.new('LocalScript', Frame)
-    if _G.ChatLol == true then
+
+    if _G.ChatSpam == true then
         while true do
             chat("lol")
             task.wait(.1)
@@ -157,27 +158,28 @@ coroutine.wrap(HCSRLY_fake_script)()
 
 local function MIWXMEE_fake_script() -- Frame.2 
 	local script = Instance.new('LocalScript', Frame)
+
     if _G.FovChanger == true then
         while true do
             for count = 1, 120 do
-                workspace.CurrentCamera.FieldOfView = count
+                Workspace.CurrentCamera.FieldOfView = count
                 task.wait()
             end
             task.wait()
         end
     end
 end
-coroutine.wrap(MIWXMEE_fake_script)()
+coroutine.wrap(MIWXME_fake_script)()
 
-local function ZSRBT_fake_script() -- Frame.3 
+local function ZSRBTV_fake_script() -- Frame.3 
     local script = Instance.new('LocalScript', Frame)
+
     if _G.Disco == true then
-        light = game.Lighting
-        game.Lighting.Brightness = 0
+		Lighting.Brightness = 0
         while true do
-            game.Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
+            game:GetService("Lighting").Ambient = Color3.new(math.random(), math.random(), math.random())
             task.wait(.25)
         end 
     end
 end
-coroutine.wrap(ZSRBT_fake_script)()
+coroutine.wrap(ZSRBTV_fake_script)()
