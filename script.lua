@@ -71,7 +71,6 @@ TextLabel_2.TextSize = 14.000
 TextLabel_2.TextWrapped = true
 
 -- Scripts:
-
 local function BHHDQA_fake_script() -- TextLabel_2.LocalScript 
 	local script = Instance.new('LocalScript', TextLabel_2)
 
