@@ -32,7 +32,7 @@ Sound:Play()
 task.wait(_G.PlayTheSoundThenDoIt)
 
 -- Properties
-local ScreenGui = Instance.new("ScreenGui", CoreGui)
+local ScreenGui = Instance.new("ScreenGui", Players.LocalPlayer:WaitForChild("PlayerGui"))
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Enabled = true
