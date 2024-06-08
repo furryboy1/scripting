@@ -129,7 +129,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
 			h.Text = min.. ":" ..sec..":" ..mic
 		end
-		task.wait(0.05)
+		task.wait(0.1)
 	end
 
 end
@@ -178,7 +178,7 @@ local function HCSRLY_fake_script() -- Frame.1
     if _G.ChatLol == true then
         while true do
             chat("lol")
-            task.wait(0.1)
+            task.wait(.1)
         end
     end
 end
