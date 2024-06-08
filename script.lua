@@ -2,6 +2,7 @@
 local TextChatService = cloneref(game:GetService("TextChatService"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local Workspace = cloneref(game:GetService("Workspace"))
+local SoundService = cloneref(game:GetService("SoundService"))
 local Players = cloneref(game:GetService("Players"))
 
 -- Chat Properties
@@ -20,7 +21,7 @@ local function chat(str)
 end
 
 -- Music
-local Sound = Instance.new("Sound")
+local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
 Sound.SoundId = "rbxassetid://".._G.SoundId
 Sound.Volume = 10000
@@ -109,7 +110,6 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 					min = 0
 					sec = 0
 					mic = 0
-					wait(.2)
 					while true do end
 				end
 			end
@@ -157,7 +157,7 @@ local function HCSRLY_fake_script() -- Frame.1
 end
 coroutine.wrap(HCSRLY_fake_script)()
 
-local function MIWXMEE_fake_script() -- Frame.2 
+local function MIWXME_fake_script() -- Frame.2 
 	local script = Instance.new('LocalScript', Frame)
 
     if _G.FovChanger == true then
