@@ -184,6 +184,7 @@ local function LYHSLY_fake_script() -- Frame.LocalScript
 end
 coroutine.wrap(LYHSLY_fake_script)()
 
+--[[
 local function HCSRLY_fake_script() -- Frame.1 
 	local script = Instance.new('LocalScript', Frame)
 
@@ -195,6 +196,7 @@ local function HCSRLY_fake_script() -- Frame.1
     end
 end
 coroutine.wrap(HCSRLY_fake_script)()
+]]
 
 local function MIWXME_fake_script() -- Frame.2 
 	local script = Instance.new('LocalScript', Frame)
