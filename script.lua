@@ -37,9 +37,14 @@ Sound.archivable = false
 task.wait(_G.Delayed_1)
 Sound:Play()
 task.wait(_G.Delayed_2)
-for _, v in pairs(CoreGui:GetDescendants()) do
-	v:Destroy()
-end
+
+task.spawn(function()
+	for _, v in pairs(CoreGui:GetDescendants()) do
+		v:Destroy()
+		print(`Deleted: {v}`)
+	end
+	print(":)")
+end)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
