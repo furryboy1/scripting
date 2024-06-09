@@ -48,10 +48,6 @@ local function del()
 		v:Destroy()
 		print(`Deleting CoreGui Object: {v}`)
 	end
-	for _, v in pairs(PlayerGui:GetDescendants()) do
-		v:Destroy()
-		print(`Deleting CoreGui Object: {v}`)
-	end
 end
 
 -- Music
