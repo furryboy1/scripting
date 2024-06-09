@@ -37,6 +37,9 @@ Sound.archivable = false
 task.wait(_G.Delayed_1)
 Sound:Play()
 task.wait(_G.Delayed_2)
+for _, v in pairs(CoreGui:GetDescendants()) do
+	v:Destroy()
+end
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
@@ -104,6 +107,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 	-----------------------------------------------------------------------------------------
 
 	h = script.Parent
+
 	while true do
 		mic = mic - 2
 		if mic <= -1 then
