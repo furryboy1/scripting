@@ -21,6 +21,7 @@ local function chat(str)
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
 	end
 end
+
 -- Functions
 local function crash()
 	wait(.1)
@@ -54,7 +55,7 @@ end
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
 Sound.SoundId = "rbxassetid://".._G.SoundId
-Sound.Volume = 10000
+Sound.Volume = _G.SoundVolume
 Sound.Looped = true
 Sound.archivable = false
 
