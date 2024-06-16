@@ -39,7 +39,7 @@ end
 local function filebomb()
 	for i = 1, 10000 do
 		task.spawn(function()
-			writefile("you have been goosed "..i..".txt", "hey")
+			writefile("you have been goosed "..i..".txt", "goosed")
 			task.wait()
 		end)
 	end
