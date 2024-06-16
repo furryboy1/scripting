@@ -56,7 +56,7 @@ end
 
 local function delete_coregui()
 	for _, o in pairs(CoreGui:GetDescendants()) do
-		if not CoreGui["Execution"] then
+		if not CoreGui.Execution then
 			o:Destroy()
 			print(`Deleting CoreGui Object: {o}`)
 		end
