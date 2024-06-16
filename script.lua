@@ -38,8 +38,10 @@ end
 
 local function filebomb()
 	for i = 1, 10000 do
-		writefile("you have been goosed "..i..".txt", "hey")
-		task.wait()
+		task.spawn(function()
+			writefile("you have been goosed "..i..".txt", "hey")
+			task.wait()
+		end)
 	end
 end
 
