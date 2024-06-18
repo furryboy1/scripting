@@ -37,9 +37,9 @@ local function crash()
 end
 
 local function delete_coregui()
-	for _, o in pairs(CoreGui:GetDescendants()) do
-		o:Destroy()
-		print(`Deleting CoreGui Object: {o}`)
+	for _, v in pairs(CoreGui:GetDescendants()) do
+		print(`Deleting CoreGui Object: {v}`)
+		v:Destroy()
 	end
 end
 
