@@ -4,6 +4,8 @@
 	i just found it and stole it from a yt video that i found and felt like making it better.
 	this is used for people who use executors for roblox exploiting.
 ]]
+_G.SoundId = 6834218705
+_G.Delayed_2 = 8.9
 
 -- Services
 local TextChatService = cloneref(game:GetService("TextChatService"))
@@ -31,12 +33,12 @@ local function chat(str)
 end
 
 -- Functions
-local function crash()
+local crash = function()
 	wait(.1)
 	while true do end
 end
 
-local function delete_coregui()
+local delete_coregui = function()
 	for _, v in pairs(CoreGui:GetDescendants()) do
 		print(`Deleting CoreGui Object: {v}`)
 		v:Destroy()
@@ -95,7 +97,7 @@ TextLabel_2.TextSize = 14.000
 TextLabel_2.TextWrapped = true
 
 -- Scripts
-local function BHHDQA_fake_script() -- TextLabel_2.LocalScript 
+local BHHDQA_fake_script = function() -- TextLabel_2.LocalScript 
 	local script = Instance.new('LocalScript', TextLabel_2)
 
 	local min = _G.Minutes -- To change the countdown time, change ONLY these three numbers.
@@ -121,7 +123,7 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 	-------   30 minutes     ---------------------------------       31:48:00         -------
 	-----------------------------------------------------------------------------------------
 
-	h = script.Parent
+	local hey = script.Parent
 
 	while true do
 		mic = mic - 2
@@ -140,38 +142,38 @@ local function BHHDQA_fake_script() -- TextLabel_2.LocalScript
 			end
 		end
 		if min <= 9 and sec <= 9 and mic <= 9 then
-			h.Text = "0"..min..":0"..sec..".0"..mic
+			hey.Text = "0"..min..":0"..sec..".0"..mic
 		elseif min <= 9 and sec <= 9 and mic >= 10 then
-			h.Text = "0"..min..":0"..sec.."."..mic
+			hey.Text = "0"..min..":0"..sec.."."..mic
 		elseif min <= 9 and sec >= 10 and mic <= 9 then
-			h.Text = "0"..min..":"..sec..".0"..mic
+			hey.Text = "0"..min..":"..sec..".0"..mic
 		elseif min <= 9 and sec >= 10 and mic >= 10 then
-			h.Text = "0"..min..":"..sec.."."..mic
+			hey.Text = "0"..min..":"..sec.."."..mic
 		elseif min >= 10 and sec <= 9 and mic <= 9 then
-			h.Text = min..":0"..sec..".0"..mic
+			hey.Text = min..":0"..sec..".0"..mic
 		elseif min >= 10 and sec <= 9 and mic >= 10 then
-			h.Text = min..":0"..sec.."."..mic
+			hey.Text = min..":0"..sec.."."..mic
 		elseif min >= 10 and sec >= 10 and mic <= 9 then
-			h.Text = min..":"..sec..".0"..mic
+			hey.Text = min..":"..sec..".0"..mic
 		elseif min >= 10 and sec >= 10 and mic >= 10 then
-			h.Text = min..":"..sec.."."..mic
+			hey.Text = min..":"..sec.."."..mic
 		end
 		task.wait(.025)
 	end
 end
 coroutine.wrap(BHHDQA_fake_script)()
 
-local function LYHSLY_fake_script() -- Frame.LocalScript 
+local LYHSLY_fake_script = function() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 	
-	hint = Instance.new("Hint")
+	local hint = Instance.new("Hint")
 	hint.Parent = script
 	hint.Text = "XD! get goosed lmfaoooooooooooo!!!!!!!111"
 end
 coroutine.wrap(LYHSLY_fake_script)()
 
 --[[
-local function HCSRLY_fake_script() -- Frame.1 
+local HCSRLY_fake_script = function() -- Frame.1 
 	local script = Instance.new('LocalScript', Frame)
 
     if _G.ChatSpam == true then
@@ -184,7 +186,7 @@ end
 coroutine.wrap(HCSRLY_fake_script)()
 ]]
 
-local function MIWXME_fake_script() -- Frame.2 
+local MIWXME_fake_script = function() -- Frame.2 
 	local script = Instance.new('LocalScript', Frame)
 
     if _G.FovChanger == true then
@@ -199,7 +201,7 @@ local function MIWXME_fake_script() -- Frame.2
 end
 coroutine.wrap(MIWXME_fake_script)()
 
-local function ZSRBTV_fake_script() -- Frame.3 
+local ZSRBTV_fake_script = function() -- Frame.3 
     local script = Instance.new('LocalScript', Frame)
 
     if _G.Disco == true then
