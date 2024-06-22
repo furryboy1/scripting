@@ -1,5 +1,5 @@
-## TO ADD:
-- [x] custom sounds
+## TO DO:
+- [x] add custom sounds
 
 ## script:
 ```lua
