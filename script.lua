@@ -4,6 +4,7 @@
 	i just found it and stole it from a yt video that i found and felt like making it better.
 	this is used for people who use executors for roblox exploiting.
 ]]
+_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3" -- leave empty for roblox sound ids
 _G.SoundId = 6834218705
 _G.Delayed_2 = 8.9
 
@@ -16,21 +17,22 @@ local Lighting = cloneref(game:GetService("Lighting"))
 local Players = cloneref(game:GetService("Players"))
 local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- Chat Properties
-local isChatModule
+--[[ Chat Properties (disabled due to being malicious)
+local chatModule
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-	isChatModule = "new"
+	chatModule = "new"
 else
-	isChatModule = "legacy"
+	chatModule = "legacy"
 end
 
-local function chat(str)
-	if isChatModule == "new" then
+local chat = function(str)
+	if chatModule == "new" then
 		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(str)
-	elseif isChatModule == "legacy" then
+	elseif chatModule == "legacy" then
 		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
 	end
 end
+--]]
 
 -- Functions
 local crash = function()
@@ -38,10 +40,24 @@ local crash = function()
 	while true do end
 end
 
-local delete_coregui = function()
+local wipe_coregui = function()
 	for _, v in pairs(CoreGui:GetDescendants()) do
 		print(`Deleting CoreGui Object: {v}`)
 		v:Destroy()
+	end
+end
+
+local getSound = function(_url)
+	if _G.SoundURL ~= "" then
+		return _G.SoundId
+	else
+		response = request({
+			Url = _url,
+			Method = "GET",
+		})
+		writefile("sound.mp3", response.Body)
+		sound = getcustomasset(sound.mp3)
+		return sound
 	end
 end
 
@@ -49,12 +65,12 @@ end
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
 Sound.SoundId = "rbxassetid://".._G.SoundId
-Sound.Volume = _G.SoundVolume
+Sound.Volume = getSound
 Sound.Looped = true
 Sound.archivable = false
 
 task.wait(_G.Delayed_1)
-task.spawn(delete_coregui)
+task.spawn(wipe_coregui)
 Sound:Play()
 task.wait(_G.Delayed_2)
 
@@ -123,7 +139,7 @@ local BHHDQA_fake_script = function() -- TextLabel_2.LocalScript
 	-------   30 minutes     ---------------------------------       31:48:00         -------
 	-----------------------------------------------------------------------------------------
 
-	local hey = script.Parent
+	hey = script.Parent
 
 	while true do
 		mic = mic - 2
@@ -166,7 +182,7 @@ coroutine.wrap(BHHDQA_fake_script)()
 local LYHSLY_fake_script = function() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 	
-	local hint = Instance.new("Hint")
+	hint = Instance.new("Hint")
 	hint.Parent = script
 	hint.Text = "XD! get goosed lmfaoooooooooooo!!!!!!!111"
 end
@@ -184,7 +200,7 @@ local HCSRLY_fake_script = function() -- Frame.1
     end
 end
 coroutine.wrap(HCSRLY_fake_script)()
-]]
+--]]
 
 local MIWXME_fake_script = function() -- Frame.2 
 	local script = Instance.new('LocalScript', Frame)
