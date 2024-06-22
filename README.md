@@ -1,3 +1,6 @@
+## TO ADD:
+- [x] custom sounds
+
 ## script:
 ```lua
 _G.Minutes = 0
