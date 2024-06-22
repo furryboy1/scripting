@@ -4,7 +4,8 @@
 	i just found it and stole it from a yt video that i found and felt like making it better.
 	this is used for people who use executors for roblox exploiting.
 ]]
-_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3" -- leave empty for roblox sound ids
+_G.SoundURL = "" -- leave empty for roblox sound ids
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3
 _G.SoundId = 6834218705
 _G.Delayed_2 = 8.9
 
@@ -70,8 +71,8 @@ end
 -- Music
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
-Sound.SoundId = "rbxassetid://".._G.SoundId
-Sound.Volume = getSound()
+Sound.SoundId = getSound()
+Sound.Volume = _G.SoundVolume
 Sound.Looped = true
 Sound.archivable = false
 
