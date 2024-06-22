@@ -48,14 +48,21 @@ local wipe_coregui = function()
 end
 
 local getSound = function()
-	if _G.SoundURL ~= "" then
+	if _G.SoundURL == "" then
 		return _G.SoundId
 	else
+		fileName = "sound.mp3"
+		print("Fetching sound, please wait...")
 		response = request({
 			Url = _G.SoundURL,
 			Method = "GET",
 		})
 		writefile("sound.mp3", response.Body)
+		if response.StatusCode == 200 then
+			print("Sound fetched! Saved as "..fileName)
+		else
+			print("Failed to fetch sound! Status code: "..response.StatusCode)
+		end
 		return getcustomasset("sound.mp3")
 	end
 end
