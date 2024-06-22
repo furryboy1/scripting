@@ -47,17 +47,16 @@ local wipe_coregui = function()
 	end
 end
 
-local getSound = function(_url)
+local getSound = function()
 	if _G.SoundURL ~= "" then
 		return _G.SoundId
 	else
 		response = request({
-			Url = _url,
+			Url = _G.SoundURL,
 			Method = "GET",
 		})
 		writefile("sound.mp3", response.Body)
-		sound = getcustomasset(sound.mp3)
-		return sound
+		return getcustomasset(sound.mp3)
 	end
 end
 
@@ -65,7 +64,7 @@ end
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
 Sound.SoundId = "rbxassetid://".._G.SoundId
-Sound.Volume = getSound
+Sound.Volume = getSound()
 Sound.Looped = true
 Sound.archivable = false
 
