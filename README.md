@@ -1,5 +1,8 @@
-## TO DO: (working on right now)
-- [x] add custom sounds
+## TO DO:
+- [x] nothing
+
+## Change logs:
+- added custom sounds (solara is unsupported since getcustomasset does not work)
 
 ## script:
 ```lua
