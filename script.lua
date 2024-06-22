@@ -56,7 +56,7 @@ local getSound = function()
 			Method = "GET",
 		})
 		writefile("sound.mp3", response.Body)
-		return getcustomasset(sound.mp3)
+		return getcustomasset("sound.mp3")
 	end
 end
 
