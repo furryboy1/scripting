@@ -5,7 +5,7 @@
 	this is used for people who use executors for roblox exploiting.
 ]]
 _G.SoundURL = "" -- leave empty for sound id
--- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3 | delay2: 4.1
 _G.SoundId = 6834218705
 _G.Delayed_2 = 8.9
 
