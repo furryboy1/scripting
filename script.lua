@@ -4,7 +4,7 @@
 	i just found it and stole it from a yt video that i found and felt like making it better.
 	this is used for people who use executors for roblox exploiting.
 ]]
-_G.SoundURL = "" -- leave empty for roblox sound ids
+_G.SoundURL = "" -- leave empty for sound id
 -- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3
 _G.SoundId = 6834218705
 _G.Delayed_2 = 8.9
@@ -53,11 +53,8 @@ local getsound = function()
 		return _G.SoundId
 	else
 		file = "sound.mp3"
-		print("Fetching sound, please wait...")
-		response = request({
-			Url = _G.SoundURL,
-			Method = "GET",
-		})
+		print("Fetching sound, please wait.")
+		response = request({Url = _G.SoundURL, Method = "GET"})
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
 			print("Sound fetched successfully! Saved as "..file)
@@ -69,9 +66,9 @@ local getsound = function()
 end
 
 -- Music
-print("Now playing...")
+print("Now playing.")
 local Sound = Instance.new("Sound", SoundService)
-Sound.Name = "sound"
+Sound.Name = "goosed!!!"
 Sound.SoundId = getsound()
 Sound.Volume = _G.Volume
 Sound.Looped = true
