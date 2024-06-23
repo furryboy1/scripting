@@ -48,11 +48,11 @@ local wipe_coregui = function()
 	end
 end
 
-local getSound = function()
+local getsound = function()
 	if _G.SoundURL == "" then
 		return _G.SoundId
 	else
-		fileName = "sound.mp3"
+		file = "sound.mp3"
 		print("Fetching sound, please wait...")
 		response = request({
 			Url = _G.SoundURL,
@@ -60,19 +60,20 @@ local getSound = function()
 		})
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
-			print("Sound fetched! Saved as "..fileName)
+			print("Sound fetched successfully! Saved as "..file)
 		else
-			print("Failed to fetch sound! Status code: "..response.StatusCode)
+			warn("Failed to fetch sound! Status code: "..response.StatusCode)
 		end
 		return getcustomasset("sound.mp3")
 	end
 end
 
 -- Music
+print("Now playing...")
 local Sound = Instance.new("Sound", SoundService)
-Sound.Name = "goosed!!!"
-Sound.SoundId = getSound()
-Sound.Volume = _G.SoundVolume
+Sound.Name = "sound"
+Sound.SoundId = getsound()
+Sound.Volume = _G.Volume
 Sound.Looped = true
 Sound.archivable = false
 
