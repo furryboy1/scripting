@@ -13,7 +13,7 @@ _G.Disco = true -- changes the changing colors
 _G.ChatSpam = true -- spams the chat
 _G.FovChanger = true -- changes your fov
 
-_G.SoundVolume = 10 -- sound volume
+_G.SoundVolume = 10000 -- sound volume
 
 _G.Delayed_1 = 3 -- delay before playing the sound
 

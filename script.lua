@@ -78,7 +78,7 @@ task.spawn(wipe_coregui)
 print("Now playing")
 Sound:Play()
 task.wait(_G.Delayed_2)
-Sound.Volume = _G.Volume
+Sound.Volume = _G.SoundVolume
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
