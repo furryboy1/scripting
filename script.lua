@@ -68,16 +68,17 @@ end
 -- Music
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
-Sound.SoundId = getsound()
-Sound.Volume = _G.Volume
+Sound.Volume = 1
 Sound.Looped = true
 Sound.archivable = false
+Sound.SoundId = getsound()
 
 task.wait(_G.Delayed_1)
 task.spawn(wipe_coregui)
 print("Now playing")
 Sound:Play()
 task.wait(_G.Delayed_2)
+Sound.Volume = _G.Volume
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
