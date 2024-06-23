@@ -50,10 +50,10 @@ end
 
 local getsound = function()
 	if _G.SoundURL == "" then
-		return _G.SoundId
+		return "rbxassetid://".._G.SoundId
 	else
 		file = "sound.mp3"
-		print("Fetching sound, please wait.")
+		print("Fetching sound, please wait")
 		response = request({Url = _G.SoundURL, Method = "GET"})
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
@@ -66,7 +66,6 @@ local getsound = function()
 end
 
 -- Music
-print("Now playing.")
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
 Sound.SoundId = getsound()
@@ -76,6 +75,7 @@ Sound.archivable = false
 
 task.wait(_G.Delayed_1)
 task.spawn(wipe_coregui)
+print("Now playing")
 Sound:Play()
 task.wait(_G.Delayed_2)
 
