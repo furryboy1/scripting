@@ -1,8 +1,10 @@
 --[[ jumpscare script
+
 	hi.
 	i am not a skid this ain't my code.
 	i just found it and stole it from a yt video that i found and felt like making it better.
 	this is used for people who use executors for roblox exploiting.
+
 ]]
 _G.SoundURL = "" -- leave empty for sound id
 -- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3 | delay2: 4.1
@@ -50,10 +52,11 @@ end
 
 local getsound = function()
 	if _G.SoundURL == "" then
+		print("No url, using roblox sound ids.")
 		return "rbxassetid://".._G.SoundId
 	else
 		file = "sound.mp3"
-		print("Fetching sound, please wait")
+		print("Fetching sound, please wait.")
 		response = request({Url = _G.SoundURL, Method = "GET"})
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
@@ -68,7 +71,7 @@ end
 -- Music
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
-Sound.Volume = 1
+Sound.Volume = _G.SoundVolume
 Sound.Looped = true
 Sound.archivable = false
 Sound.SoundId = getsound()
@@ -78,7 +81,6 @@ task.spawn(wipe_coregui)
 print("Now playing")
 Sound:Play()
 task.wait(_G.Delayed_2)
-Sound.Volume = _G.SoundVolume
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
