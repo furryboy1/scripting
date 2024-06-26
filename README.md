@@ -2,7 +2,7 @@
 - [x] nothing
 
 ## Change logs:
-- added custom sounds but it will be temporarily disabled because solara is unsupported since getcustomasset doesn't work
+- added custom sounds (solara not supported yet)
 
 ## script:
 ```lua
