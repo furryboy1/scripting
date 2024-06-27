@@ -14,14 +14,15 @@ _G.SoundId = 6834218705
 _G.Delayed_2 = 8.9
 --]]
 
-local execName = tostring(identifyexecutor())
-if execName:lower() == "solara" then
+if identifyexecutor():lower() == "solara" then
+	print("solara detected, using roblox sound id.")
 	_G.SoundURL = ""
 	_G.SoundId = 6834218705
 	_G.Delayed_2 = 8.9
 else
+	print("solara not detected, using mp3 sounds.")
 	_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3"
-	_G.SoundId = 6834218705
+	_G.SoundId =  
 	_G.Delayed_2 = 4.1
 end
 
