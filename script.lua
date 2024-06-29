@@ -22,7 +22,7 @@ if identifyexecutor():lower() == "solara" then
 else
 	print("solara not detected, using mp3 sounds.")
 	_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3"
-	_G.SoundId =  
+	_G.SoundId = 0
 	_G.Delayed_2 = 4.1
 end
 
