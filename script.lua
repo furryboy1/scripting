@@ -7,12 +7,10 @@
 
 ]]
 
---[[
-_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3" -- leave empty for sound id
--- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3 | delay2: 4.1
-_G.SoundId = 6834218705
-_G.Delayed_2 = 8.9
---]]
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound.mp3 | delayed_2: unknown
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3 | delayed_2: 4.1
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound3.mp3 | delayed_2: unknown (yet)
+
 
 if identifyexecutor():lower() == "solara" then
 	print("Unsupported executor, using sound id")
