@@ -9,7 +9,7 @@
 
 -- https://github.com/FurryBoyYT/scripting/raw/main/sound.mp3 | delayed_2: unknown
 -- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3 | delayed_2: 4.1
--- https://github.com/FurryBoyYT/scripting/raw/main/sound3.mp3 | delayed_2: unknown (yet)
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound3.mp3 | delayed_2: 4.2
 
 
 if identifyexecutor():lower() == "solara" then
