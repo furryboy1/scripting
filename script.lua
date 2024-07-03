@@ -15,15 +15,8 @@ _G.Delayed_2 = 8.9
 --]]
 
 if identifyexecutor():lower() == "solara" then
-	print("solara detected, using roblox sound id.")
+	print("Unsupported executor, using sound id")
 	_G.SoundURL = ""
-	_G.SoundId = 6834218705
-	_G.Delayed_2 = 8.9
-else
-	print("solara not detected, using mp3 sounds.")
-	_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3"
-	_G.SoundId = 0
-	_G.Delayed_2 = 4.1
 end
 
 -- Services
@@ -36,6 +29,8 @@ local Players = cloneref(game:GetService("Players"))
 local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 
 --[[ Chat Properties (disabled due to being malicious)
+_G.ChatSpam = true -- spams the chat
+
 local chatModule
 if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
 	chatModule = "new"
@@ -67,11 +62,11 @@ end
 
 local getsound = function()
 	if _G.SoundURL == "" then
-		print("No url, using roblox sound ids.")
+		print("No url, using sound id")
 		return "rbxassetid://".._G.SoundId
 	else
 		file = "sound.mp3"
-		print("Fetching sound, please wait.")
+		print("Fetching sound, please wait")
 		response = request({Url = _G.SoundURL, Method = "GET"})
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
