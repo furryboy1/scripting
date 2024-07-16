@@ -7,10 +7,11 @@
 
 ]]
 
--- https://github.com/FurryBoyYT/scripting/raw/main/sound.mp3      | delayed_2: unknown
--- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3     | delayed_2: 4.1
--- https://github.com/FurryBoyYT/scripting/raw/main/sound3.mp3     | delayed_2: 4.2
--- https://github.com/FurryBoyYT/scripting/raw/main/mesmerizer.mp3 | delayed_2: 3.9
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound.mp3             | delayed_2: unknown
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3            | delayed_2: 4.1
+-- https://github.com/FurryBoyYT/scripting/raw/main/sound3.mp3            | delayed_2: 4.2
+-- https://github.com/FurryBoyYT/scripting/raw/main/mesmerizer.mp3        | delayed_2: 3.9
+-- https://github.com/FurryBoyYT/scripting/raw/main/i-like-to-pump-it.mp3 | delayed_2: unknown, soon!
 
 
 if identifyexecutor():lower() == "solara" then
