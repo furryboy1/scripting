@@ -15,10 +15,12 @@
 -- https://github.com/FurryBoyYT/scripting/raw/main/let-me-see-ya-move.mp3 | delayed_2: 27.1
 
 
+--[[
 if identifyexecutor():lower() == "solara" then
 	print("Unsupported executor, using sound id")
 	_G.SoundURL = ""
 end
+--]]
 
 -- Services
 local TextChatService = cloneref(game:GetService("TextChatService"))

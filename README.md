@@ -2,7 +2,8 @@
 - [x] nothing
 
 ## Change logs:
-- added custom sounds (solara not supported yet)
+- added custom sounds
+- solara is now supported :D
 
 ## script:
 ```lua
