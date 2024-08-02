@@ -13,7 +13,7 @@
 -- https://github.com/FurryBoyYT/scripting/raw/main/mesmerizer.mp3 | delayed_2: 3.9
 -- https://github.com/FurryBoyYT/scripting/raw/main/i-like-to-pump-it.mp3 | delayed_2: unknown
 -- https://github.com/FurryBoyYT/scripting/raw/main/let-me-see-ya-move.mp3 | delayed_2: 27.1
--- https://github.com/FurryBoyYT/scripting/raw/main/this-comes-from-inside-its-been-so-long.mp3 | delayed: checking
+-- https://github.com/FurryBoyYT/scripting/raw/main/this-comes-from-inside-its-been-so-long.mp3 | delayed: probably 11.3
 
 
 --[[
