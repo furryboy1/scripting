@@ -7,13 +7,14 @@
 
 ]]
 
--- https://github.com/FurryBoyYT/scripting/raw/main/sound.mp3 | delayed_2: unknown
--- https://github.com/FurryBoyYT/scripting/raw/main/sound2.mp3 | delayed_2: 4.1
--- https://github.com/FurryBoyYT/scripting/raw/main/sound3.mp3 | delayed_2: 4.2
--- https://github.com/FurryBoyYT/scripting/raw/main/mesmerizer.mp3 | delayed_2: 3.9
--- https://github.com/FurryBoyYT/scripting/raw/main/i-like-to-pump-it.mp3 | delayed_2: unknown
--- https://github.com/FurryBoyYT/scripting/raw/main/let-me-see-ya-move.mp3 | delayed_2: 27.1
--- https://github.com/FurryBoyYT/scripting/raw/main/this-comes-from-inside-its-been-so-long.mp3 | delayed: probably 11.3
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound.mp3 | delayed_2: unknown
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound2.mp3 | delayed_2: 4.1
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound3.mp3 | delayed_2: 4.2
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/mesmerizer.mp3 | delayed_2: 3.9
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/i-like-to-pump-it.mp3 | delayed_2: unknown
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/let-me-see-ya-move.mp3 | delayed_2: 27.1
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/this-comes-from-inside-its-been-so-long.mp3 | delayed: probably 11.3
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/move-your-body.mp3 | delayed: 11.5
 
 
 --[[
@@ -24,13 +25,13 @@ end
 --]]
 
 -- Services
-local TextChatService = cloneref(game:GetService("TextChatService"))
+--local TextChatService = cloneref(game:GetService("TextChatService"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
 local Workspace = cloneref(game:GetService("Workspace"))
 local SoundService = cloneref(game:GetService("SoundService"))
 local Lighting = cloneref(game:GetService("Lighting"))
-local Players = cloneref(game:GetService("Players"))
-local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+--local Players = cloneref(game:GetService("Players"))
+--local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 
 --[[ Chat Properties ⚠️ (disabled due to being malicious)
 _G.ChatSpam = true -- spams the chat

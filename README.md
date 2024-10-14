@@ -2,8 +2,7 @@
 - [x] nothing
 
 ## Change logs:
-- added custom sounds
-- solara is now supported :D
+- updated, i forgor
 
 ## script:
 ```lua
@@ -13,7 +12,7 @@ _G.Seconds = 30
 _G.Disco = true -- changes the changing colors
 _G.FovChanger = true -- changes your fov
 
-_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sound3.mp3" -- leave blank for roblox sound id
+_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound3.mp3" -- leave blank for roblox sound id
 _G.SoundId = 6834218705 -- your sound id
 _G.SoundVolume = 10 -- sound volume
 
