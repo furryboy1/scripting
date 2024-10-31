@@ -27,11 +27,12 @@ end
 -- Services
 --local TextChatService = cloneref(game:GetService("TextChatService"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
+local Players = game:GetService("Players")
 local Workspace = cloneref(game:GetService("Workspace"))
 local SoundService = cloneref(game:GetService("SoundService"))
 local Lighting = cloneref(game:GetService("Lighting"))
 --local Players = cloneref(game:GetService("Players"))
---local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 
 --[[ Chat Properties ⚠️ (disabled due to being malicious)
 _G.ChatSpam = true -- spams the chat
@@ -71,6 +72,17 @@ local wipe_coregui = function()
 	end
 end
 
+local wipe_playergui = function()
+	for _, v in pairs(PlayerGui:GetDescendants()) do
+		print(`Deleting PlayerGui Object: {v}`)
+		v:Destroy()
+	end
+end
+
+local freeze_plr = function()
+	Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+end
+
 local getsound = function()
 	if _G.SoundURL == "" then
 		print("No url, using sound id")
@@ -99,6 +111,8 @@ Sound.SoundId = getsound()
 
 task.wait(_G.Delayed_1)
 task.spawn(wipe_coregui)
+task.spawn(wipe_playergui)
+task.spawn(freeze_plr)
 print("Now playing")
 Sound:Play()
 task.wait(_G.Delayed_2)
