@@ -15,6 +15,7 @@
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/let-me-see-ya-move.mp3 | delayed_2: 27.1
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/this-comes-from-inside-its-been-so-long.mp3 | delayed: probably 11.3
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/move-your-body.mp3 | delayed: 11.5
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel.mp3 | delayed: 14
 
 --[[
 if identifyexecutor():lower() == "solara" then
