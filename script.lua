@@ -55,7 +55,13 @@ end
 -- Functions
 local crash = function()
 	wait(.1)
-	while true do end
+	if syn and syn.killprocess then
+		-- This only works for Synapse Z!
+		syn.killprocess()
+	else
+		-- Do loop if function does not exist
+		while true do end
+	end
 end
 
 local wipe_coregui = function()
