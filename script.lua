@@ -7,6 +7,19 @@
 
 ]]
 
+_G.Minutes = 0
+_G.Seconds = 30
+
+_G.Disco = true -- changes the changing colors
+_G.FovChanger = true -- changes your fov
+
+_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3" -- leave blank for roblox sound id
+_G.SoundId = 6834218705 -- your sound id
+_G.SoundVolume = 10 -- sound volume
+
+_G.Delayed_1 = 3 -- delay before playing the sound
+_G.Delayed_2 = 17.1 -- when music beat comes, the jumpscare part comes.
+
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound.mp3 | delayed_2: unknown
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound2.mp3 | delayed_2: 4.1
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound3.mp3 | delayed_2: 4.2
@@ -112,7 +125,7 @@ Sound.SoundId = getsound()
 task.wait(_G.Delayed_1)
 task.spawn(wipe_coregui)
 task.spawn(wipe_playergui)
--- task.spawn(freeze_plr)
+task.spawn(freeze_plr)
 print("Now playing")
 Sound:Play()
 task.wait(_G.Delayed_2)
