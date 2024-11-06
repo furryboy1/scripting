@@ -108,10 +108,11 @@ local getsound = function()
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
 			print("Sound fetched successfully! Saved as "..file)
+			return getcustomasset("sound.mp3")
 		else
-			warn("Failed to fetch sound! Status code: "..response.StatusCode)
+			warn("Failed to fetch sound, using sound id. Status code: "..response.StatusCode)
+			return "rbxassetid://".._G.SoundId
 		end
-		return getcustomasset("sound.mp3")
 	end
 end
 
