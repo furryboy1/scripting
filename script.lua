@@ -18,7 +18,7 @@ _G.SoundId = 6834218705 -- your sound id
 _G.SoundVolume = 10 -- sound volume
 
 _G.Delayed_1 = 3 -- delay before playing the sound
-_G.Delayed_2 = 17.1 -- when music beat comes, the jumpscare part comes.
+_G.Delayed_2 = 17.2 -- when music beat comes, the jumpscare part comes.
 
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound.mp3 | delayed_2: unknown
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound2.mp3 | delayed_2: 4.1
