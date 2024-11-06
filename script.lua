@@ -16,6 +16,7 @@ _G.FovChanger = true -- changes your fov
 _G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3" -- leave blank for roblox sound id
 _G.SoundId = 6834218705 -- your sound id
 _G.SoundVolume = 10 -- sound volume
+_G.SoundLooped = false
 
 _G.Delayed_1 = 3 -- delay before playing the sound
 _G.Delayed_2 = 17.2 -- when music beat comes, the jumpscare part comes.
@@ -118,7 +119,7 @@ end
 local Sound = Instance.new("Sound", SoundService)
 Sound.Name = "goosed!!!"
 Sound.Volume = _G.SoundVolume
-Sound.Looped = true
+Sound.Looped = _G.SoundLooped
 Sound.archivable = false
 Sound.SoundId = getsound()
 
