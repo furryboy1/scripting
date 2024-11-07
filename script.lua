@@ -7,19 +7,19 @@
 
 ]]
 
-_G.Minutes = 0
-_G.Seconds = 30
+local Minutes = 0
+local Seconds = 30
 
-_G.Disco = true -- changes the changing colors
-_G.FovChanger = true -- changes your fov
+local Disco = true -- changes the changing colors
+local FovChanger = true -- changes your fov
 
-_G.SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3" -- leave blank for roblox sound id
-_G.SoundId = 6834218705 -- your sound id
-_G.SoundVolume = 10 -- sound volume
-_G.SoundLooped = false
+local SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3" -- leave blank for roblox sound id
+local SoundId = 6834218705 -- your sound id
+local SoundVolume = 10 -- sound volume
+local SoundLooped = false
 
-_G.Delayed_1 = 3 -- delay before playing the sound
-_G.Delayed_2 = 17.2 -- when music beat comes, the jumpscare part comes.
+local Delayed_1 = 3 -- delay before playing the sound
+local Delayed_2 = 17.2 -- when music beat comes, the jumpscare part comes.
 
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound.mp3 | delayed_2: unknown
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound2.mp3 | delayed_2: 4.1
@@ -31,41 +31,17 @@ _G.Delayed_2 = 17.2 -- when music beat comes, the jumpscare part comes.
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/move-your-body.mp3 | delayed: 11.5
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel.mp3 | delayed: 14
 
---[[
-if identifyexecutor():lower() == "solara" then
-	print("Unsupported executor, using sound id")
-	_G.SoundURL = ""
-end
---]]
-
 -- Services
 --local TextChatService = cloneref(game:GetService("TextChatService"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
-local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 local Workspace = cloneref(game:GetService("Workspace"))
+local GuiService = cloneref(game:GetService("GuiService"))
 local SoundService = cloneref(game:GetService("SoundService"))
 local Lighting = cloneref(game:GetService("Lighting"))
---local Players = cloneref(game:GetService("Players"))
-local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
-
---[[ Chat Properties ⚠️ (disabled due to being malicious)
-_G.ChatSpam = true -- spams the chat
-
-local chatModule
-if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-	chatModule = "new"
-else
-	chatModule = "legacy"
-end
-
-local chat = function(str)
-	if chatModule == "new" then
-		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(str)
-	elseif chatModule == "legacy" then
-		game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(str, "All")
-	end
-end
---]]
+local Players = cloneref(game:GetService("Players"))
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 -- Functions
 local crash = function()
@@ -98,39 +74,76 @@ local freeze_plr = function()
 end
 
 local getsound = function()
-	if _G.SoundURL == "" then
+	if SoundURL == "" then
 		print("No url, using sound id")
-		return "rbxassetid://".._G.SoundId
+		return "rbxassetid://"..SoundId
 	else
 		file = "sound.mp3"
 		print("Fetching sound, please wait")
-		response = request({Url = _G.SoundURL, Method = "GET"})
+		response = request({Url = SoundURL, Method = "GET"})
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
 			print("Sound fetched successfully! Saved as "..file)
 			return getcustomasset("sound.mp3")
 		else
 			warn("Failed to fetch sound, using sound id. Status code: "..response.StatusCode)
-			return "rbxassetid://".._G.SoundId
+			return "rbxassetid://"..SoundId
 		end
 	end
 end
 
+local kick_player = function()
+	LocalPlayer:Destroy()
+	task.wait(.1)
+	RunService:SetRobloxGuiFocused(false)
+	GuiService:ClearError()
+end
+
+local show_message = function()
+	local aaa = Instance.new("Message", Workspace)
+	task.wait(14.1)
+	aaa.Text = "Hey"
+	task.wait(.2)
+	aaa.Text = "Hey bro"
+	task.wait(.2)
+	aaa.Text = "Hey bro, guess"
+	task.wait(.2)
+	aaa.Text = "Hey bro, guess what"
+	task.wait(.5)
+	aaa.Text = "YOU"
+	task.wait(.2)
+	aaa.Text = "YOU GOT"
+	task.wait(.2)
+	aaa.Text = "YOU GOT HACKED"
+	task.wait(.6)
+	aaa.Text = "YOU GOT HACKED\nHA"
+	task.wait(.3)
+	aaa.Text = "YOU GOT HACKED\nHAHA"
+	task.wait(.3)
+	aaa.Text = "YOU GOT HACKED\nHAHAHA"
+	task.wait(.3)
+	aaa.Text = "YOU GOT HACKED\nHAHAHAHA"
+	task.wait(.5)
+	aaa:Destroy()
+end
+
 -- Music
 local Sound = Instance.new("Sound", SoundService)
-Sound.Name = "goosed!!!"
-Sound.Volume = _G.SoundVolume
-Sound.Looped = _G.SoundLooped
+Sound.Name = "trl"
+Sound.Volume = SoundVolume
+Sound.Looped = SoundLooped
 Sound.archivable = false
 Sound.SoundId = getsound()
 
-task.wait(_G.Delayed_1)
+task.wait(Delayed_1)
+task.spawn(kick_player)
 task.spawn(wipe_coregui)
 task.spawn(wipe_playergui)
 task.spawn(freeze_plr)
 print("Now playing")
 Sound:Play()
-task.wait(_G.Delayed_2)
+task.spawn(show_message)
+task.wait(Delayed_2)
 
 -- Properties
 local ScreenGui = Instance.new("ScreenGui", CoreGui) -- PlayerGui
@@ -174,8 +187,8 @@ TextLabel_2.TextWrapped = true
 local BHHDQA_fake_script = function() -- TextLabel_2.LocalScript 
 	local script = Instance.new('LocalScript', TextLabel_2)
 
-	local min = _G.Minutes -- To change the countdown time, change ONLY these three numbers.
-	local sec = _G.Seconds -- Please note that min stands for Minutes, sec for Seconds, and mic
+	local min = Minutes -- To change the countdown time, change ONLY these three numbers.
+	local sec = Seconds -- Please note that min stands for Minutes, sec for Seconds, and mic
 	local mic = 0 -- for Microseconds. This is NOT 100% accurate and gives about 18
 
 	-----------------------------------------------------------------------------------------
@@ -246,24 +259,10 @@ local LYHSLY_fake_script = function() -- Frame.LocalScript
 end
 coroutine.wrap(LYHSLY_fake_script)()
 
---[[
-local HCSRLY_fake_script = function() -- Frame.1 
+local MIWXME_fake_script = function() -- Frame.2
 	local script = Instance.new('LocalScript', Frame)
 
-    if _G.ChatSpam == true then
-        while true do
-            chat("lol")
-            task.wait(.1)
-        end
-    end
-end
-coroutine.wrap(HCSRLY_fake_script)()
---]]
-
-local MIWXME_fake_script = function() -- Frame.2 
-	local script = Instance.new('LocalScript', Frame)
-
-    if _G.FovChanger == true then
+    if FovChanger == true then
         while true do
             for count = 1, 120 do
                 Workspace.CurrentCamera.FieldOfView = count
@@ -275,10 +274,10 @@ local MIWXME_fake_script = function() -- Frame.2
 end
 coroutine.wrap(MIWXME_fake_script)()
 
-local ZSRBTV_fake_script = function() -- Frame.3 
+local ZSRBTV_fake_script = function() -- Frame.3
     local script = Instance.new('LocalScript', Frame)
 
-    if _G.Disco == true then
+    if Disco == true then
 		Lighting.Brightness = 0
         while true do
             Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
