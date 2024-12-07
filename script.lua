@@ -103,13 +103,13 @@ end
 local show_message = function()
 	local aaa = Instance.new("Message", Workspace)
 	task.wait(14.1)
-	aaa.Text = "Hey"
+	aaa.Text = "hey"
 	task.wait(.2)
-	aaa.Text = "Hey bro"
+	aaa.Text = "hey bro"
 	task.wait(.2)
-	aaa.Text = "Hey bro, guess"
+	aaa.Text = "hey bro, guess"
 	task.wait(.2)
-	aaa.Text = "Hey bro, guess what"
+	aaa.Text = "hey bro, guess what"
 	task.wait(.5)
 	aaa.Text = "YOU"
 	task.wait(.2)
