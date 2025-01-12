@@ -19,7 +19,7 @@ local SoundVolume = 10 -- sound volume
 local SoundLooped = false
 
 local Delayed_1 = 3 -- delay before playing the sound
-local Delayed_2 = 2.9 -- when music beat comes, the jumpscare part comes.
+local Delayed_2 = 3.1 -- when music beat comes, the jumpscare part comes.
 
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound.mp3 | delayed_2: unknown
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound2.mp3 | delayed_2: 4.1
@@ -31,7 +31,7 @@ local Delayed_2 = 2.9 -- when music beat comes, the jumpscare part comes.
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/move-your-body.mp3 | delayed: 11.5
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel.mp3 | delayed: 14.1
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3 | delayed: 17.2
--- https://github.com/FurryBoyYT/scripting/raw/main/sounds/demonio_modified.mp3 | delayed: 2.9
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/demonio_modified.mp3 | delayed: 3
 
 
 -- Services
