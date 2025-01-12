@@ -13,13 +13,13 @@ local Seconds = 30
 local Disco = true -- changes the changing colors
 local FovChanger = true -- changes your fov
 
-local SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3" -- leave blank for roblox sound id
+local SoundURL = "https://github.com/FurryBoyYT/scripting/raw/main/sounds/demonio_modified.mp3" -- leave blank for roblox sound id
 local SoundId = 6834218705 -- your sound id
 local SoundVolume = 10 -- sound volume
 local SoundLooped = false
 
 local Delayed_1 = 3 -- delay before playing the sound
-local Delayed_2 = 17.2 -- when music beat comes, the jumpscare part comes.
+local Delayed_2 = 2.9 -- when music beat comes, the jumpscare part comes.
 
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound.mp3 | delayed_2: unknown
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/sound2.mp3 | delayed_2: 4.1
@@ -30,7 +30,9 @@ local Delayed_2 = 17.2 -- when music beat comes, the jumpscare part comes.
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/this-comes-from-inside-its-been-so-long.mp3 | delayed: probably 11.3
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/move-your-body.mp3 | delayed: 11.5
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel.mp3 | delayed: 14.1
--- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel.mp3 | delayed: 17.2
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3 | delayed: 17.2
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/demonio_modified.mp3 | delayed: 2.9
+
 
 -- Services
 --local TextChatService = cloneref(game:GetService("TextChatService"))
@@ -81,7 +83,7 @@ local getsound = function()
 	else
 		file = "sound.mp3"
 		print("Fetching sound, please wait")
-		response = request({Url = SoundURL, Method = "GET"})
+		response = request({Url=SoundURL,Method="GET"})
 		writefile("sound.mp3", response.Body)
 		if response.StatusCode == 200 then
 			print("Sound fetched successfully! Saved as "..file)
@@ -100,6 +102,7 @@ local kick_player = function()
 	GuiService:ClearError()
 end
 
+--[[
 local show_message = function()
 	local aaa = Instance.new("Message", Workspace)
 	task.wait(14.1)
@@ -127,6 +130,7 @@ local show_message = function()
 	task.wait(.5)
 	aaa:Destroy()
 end
+]]
 
 -- Music
 local Sound = Instance.new("Sound", SoundService)
@@ -143,7 +147,7 @@ task.spawn(wipe_playergui)
 task.spawn(freeze_plr)
 print("Now playing")
 Sound:Play()
-task.spawn(show_message)
+-- task.spawn(show_message)
 task.wait(Delayed_2)
 
 -- Properties
