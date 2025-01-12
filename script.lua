@@ -31,7 +31,7 @@ local Delayed_2 = 3.1 -- when music beat comes, the jumpscare part comes.
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/move-your-body.mp3 | delayed: 11.5
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel.mp3 | delayed: 14.1
 -- https://github.com/FurryBoyYT/scripting/raw/main/sounds/taconiel_h.mp3 | delayed: 17.2
--- https://github.com/FurryBoyYT/scripting/raw/main/sounds/demonio_modified.mp3 | delayed: 3
+-- https://github.com/FurryBoyYT/scripting/raw/main/sounds/demonio_modified.mp3 | delayed: 3.1
 
 
 -- Services
