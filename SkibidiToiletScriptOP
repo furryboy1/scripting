@@ -1,6 +1,7 @@
 local player = game.Players.LocalPlayer
 if player.Name = "dangerous_h6cker" then
-    print("Unsupported game")
+    print("Unsupported game: a literal baseplate")
+    print("Supported game: Da Hood")
     return
 end
 
