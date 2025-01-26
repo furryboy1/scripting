@@ -1,3 +1,9 @@
+local player = game.Players.LocalPlayer
+if player.Name = "dangerous_h6cker" then
+    print("Unsupported game")
+    return
+end
+
 --loadstring(game:HttpGet("https://github.com/FurryBoyYT/scripting/raw/main/SkibidiToiletScriptOP"))()
 
 local LinkingService = game:service('LinkingService\0')
