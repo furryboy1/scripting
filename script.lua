@@ -48,14 +48,8 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 -- Functions
 local crash = function()
-	wait(.1)
-	if syn and syn.killprocess then
-		-- This only works for Synapse Z!
-		syn.killprocess()
-	else
-		-- Do loop if function does not exist
-		while true do end
-	end
+	task.wait(.5)
+	while true do end
 end
 
 local wipe_coregui = function()
@@ -85,7 +79,7 @@ local getsound = function()
 		print("Fetching sound, please wait")
 		response = request({Url=SoundURL,Method="GET"})
 		writefile("sound.mp3", response.Body)
-		if response.StatusCode == 200 then
+		if response.Success or response.StatusCode == 200 then
 			print("Sound fetched successfully! Saved as "..file)
 			return getcustomasset("sound.mp3")
 		else
@@ -189,7 +183,7 @@ TextLabel_2.TextSize = 14.000
 TextLabel_2.TextWrapped = true
 
 -- Scripts
-local BHHDQA_fake_script = function() -- TextLabel_2.LocalScript 
+local BHHDQA_fake_script = function() -- TextLabel_2.LocalScript
 	local script = Instance.new('LocalScript', TextLabel_2)
 
 	local min = Minutes -- To change the countdown time, change ONLY these three numbers.
@@ -255,9 +249,9 @@ local BHHDQA_fake_script = function() -- TextLabel_2.LocalScript
 end
 coroutine.wrap(BHHDQA_fake_script)()
 
-local LYHSLY_fake_script = function() -- Frame.LocalScript 
+local LYHSLY_fake_script = function() -- Frame.LocalScript
 	local script = Instance.new('LocalScript', Frame)
-	
+
 	hint = Instance.new("Hint")
 	hint.Parent = script
 	hint.Text = "XD! get goosed lmfaoooooooooooo!!!!!!!111"
@@ -287,7 +281,7 @@ local ZSRBTV_fake_script = function() -- Frame.3
         while true do
             Lighting.Ambient = Color3.new(math.random(), math.random(), math.random())
             task.wait(.25)
-        end 
+        end
     end
 end
 coroutine.wrap(ZSRBTV_fake_script)()
