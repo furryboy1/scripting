@@ -14,48 +14,55 @@ local sub, format, split, loadstring, spawn = string.sub, string.format, string.
 local PNG = {}
 PNG.__index = PNG
 
-local chunks = {};
-local modules = {};
+local chunks = {}
+local modules = {}
 
 -- Fetch the chunks:
 
 function fetch(folder)
-    local r = {}
+	local r = {}
 
-    if isfolder("PNGLib/" .. folder) then
+	if isfolder("PNGLib/" .. folder) then
 		for _, file in next, listfiles("PNGLib/" .. folder) do
-			local parts = split(file, "/")
-			local filename = parts[#parts] or file
-			local ChunkName = filename:match("(.+)%.[^%.]+$") or filename
+			local ChunkName = sub(split(file, "/")[3], 1, #split(file, "/")[3] - 4)
 			r[ChunkName] = loadstring(readfile(file))()
 		end
 
-        return r;
-    end
+		return r
+	end
 
-    for _, item in next, game:GetService("HttpService"):JSONDecode(request({
-        Url = "https://github.com/MaximumADHD/Roblox-PNG-Library/tree/master/" .. folder,
-        Method = "GET",
-        Headers = {
-            Accept = "application/json"
-        }
-    }).Body).payload.tree.items do
-        local Content = game:HttpGet(format("https://raw.githubusercontent.com/MaximumADHD/Roblox-PNG-Library/refs/heads/master/%s/%s", folder, item.name))
+	for _, item in
+		next,
+		game:GetService("HttpService"):JSONDecode(request({
+			Url = "https://github.com/MaximumADHD/Roblox-PNG-Library/tree/master/" .. folder,
+			Method = "GET",
+			Headers = {
+				Accept = "application/json",
+			},
+		}).Body).payload.tree.items
+	do
+		local Content = game:HttpGet(
+			format(
+				"https://raw.githubusercontent.com/MaximumADHD/Roblox-PNG-Library/refs/heads/master/%s/%s",
+				folder,
+				item.name
+			)
+		)
 
-        writefile("PNGLib/" .. folder .. "/" .. item.name, Content)
+		writefile("PNGLib/" .. folder .. "/" .. item.name, Content)
 
-        r[sub(item.name, 1, #item.name - 4)] = loadstring(Content)()
-    end
+		r[sub(item.name, 1, #item.name - 4)] = loadstring(Content)()
+	end
 
-    return r
+	return r
 end
 
 for n, v in next, fetch("Chunks") do
-    chunks[n] = v
+	chunks[n] = v
 end
 
 for n, v in next, fetch("Modules") do
-    modules[n] = v
+	modules[n] = v
 end
 
 local Deflate = modules.Deflate
@@ -78,7 +85,7 @@ end
 
 local function clampInt(value, min, max)
 	local num = tonumber(value) or 0
-	num = math.floor(num + .5)
+	num = math.floor(num + 0.5)
 
 	return math.clamp(num, min, max)
 end
@@ -102,8 +109,9 @@ end
 function PNG:GetPixel(x, y)
 	local row, i0, i1 = indexBitmap(self, x, y)
 	local colorType = self.ColorType
-	
-	local color, alpha do
+
+	local color, alpha
+	do
 		if colorType == 0 then
 			local gray = unpack(row, i0, i1)
 			color = Color3.fromHSV(0, 0, gray)
@@ -115,14 +123,14 @@ function PNG:GetPixel(x, y)
 		elseif colorType == 3 then
 			local palette = self.Palette
 			local alphaData = self.AlphaData
-			
+
 			local index = unpack(row, i0, i1)
 			index = index + 1
-			
+
 			if palette then
 				color = palette[index]
 			end
-			
+
 			if alphaData then
 				alpha = alphaData[index]
 			end
@@ -136,57 +144,55 @@ function PNG:GetPixel(x, y)
 			alpha = a
 		end
 	end
-	
+
 	if not color then
 		color = Color3.new()
 	end
-	
+
 	if not alpha then
 		alpha = 255
 	end
-	
+
 	return color, alpha
 end
 
 function PNG.new(buffer)
 	-- Create the reader.
 	local reader = BinaryReader.new(buffer)
-	
+
 	-- Create the file object.
-	local file =
-	{
-		Chunks = {};
-		Metadata = {};
-		
-		Reading = true;
-		ZlibStream = "";
+	local file = {
+		Chunks = {},
+		Metadata = {},
+
+		Reading = true,
+		ZlibStream = "",
 	}
-	
+
 	-- Verify the file header.
 	local header = reader:ReadString(8)
-	
+
 	if header ~= "\137PNG\r\n\26\n" then
 		error("PNG - Input data is not a PNG file.", 2)
 	end
-	
+
 	while file.Reading do
 		local length = reader:ReadInt32()
 		local chunkType = reader:ReadString(4)
-		
+
 		local data, crc
-		
+
 		if length > 0 then
 			data = reader:ForkReader(length)
 			crc = reader:ReadUInt32()
 		end
-		
-		local chunk =
-		{
-			Length = length;
-			Type = chunkType;
-			
-			Data = data;
-			CRC = crc;
+
+		local chunk = {
+			Length = length,
+			Type = chunkType,
+
+			Data = data,
+			CRC = crc,
 		}
 
 		local handler = chunks[chunkType]
@@ -197,46 +203,45 @@ function PNG.new(buffer)
 
 		table.insert(file.Chunks, chunk)
 	end
-	
+
 	-- Decompress the zlib stream.
-	local success, response = pcall(function ()
+	local success, response = pcall(function()
 		local result = {}
 		local index = 0
-		
-		Deflate:InflateZlib
-		{
-			Input = BinaryReader.new(file.ZlibStream);
-			
-			Output = function (byte)
+
+		Deflate:InflateZlib({
+			Input = BinaryReader.new(file.ZlibStream),
+
+			Output = function(byte)
 				index = index + 1
 				result[index] = string.char(byte)
-			end
-		}
-		
+			end,
+		})
+
 		return table.concat(result)
 	end)
-	
+
 	if not success then
 		error("PNG - Unable to unpack PNG data. " .. tostring(response), 2)
 	end
-	
+
 	-- Grab expected info from the file.
-	
+
 	local width = file.Width
 	local height = file.Height
-	
+
 	local bitDepth = file.BitDepth
 	local colorType = file.ColorType
-	
+
 	local buffer = BinaryReader.new(response)
 	file.ZlibStream = nil
-	
+
 	local bitmap = {}
 	file.Bitmap = bitmap
-	
+
 	local channels = getBytesPerPixel(colorType)
 	file.NumChannels = channels
-	
+
 	local bpp = math.max(1, channels * (bitDepth / 8))
 	file.BytesPerPixel = bpp
 
@@ -246,9 +251,9 @@ function PNG.new(buffer)
 	for row = 1, height do
 		local filterType = buffer:ReadByte()
 		local scanline = buffer:ReadBytes(width * bpp, true)
-		
+
 		bitmap[row] = {}
-		
+
 		if filterType == 0 then
 			-- None
 			Unfilter:None(scanline, bitmap, bpp, row)
