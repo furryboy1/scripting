@@ -23,10 +23,12 @@ function fetch(folder)
     local r = {}
 
     if isfolder("PNGLib/" .. folder) then
-        for _, file in next, listfiles("PNGLib/" .. folder) do
-            local ChunkName = sub(split(file, "/")[3], 1, #split(file, "/")[3] - 4)
-            r[ChunkName] = loadstring(readfile(file))()
-        end
+		for _, file in next, listfiles("PNGLib/" .. folder) do
+			local parts = split(file, "/")
+			local filename = parts[#parts] or file
+			local ChunkName = filename:match("(.+)%.[^%.]+$") or filename
+			r[ChunkName] = loadstring(readfile(file))()
+		end
 
         return r;
     end
